@@ -1,0 +1,179 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  a:visited {
+    color: $letter-white;
+    text-decoration: none;
+  }
+
+}
+
+.flash-message {
+  background-color: $light_blue;
+  color: $white-flash;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+}
+
+.side-bar {
+  width: 300px;
+  min-height: calc(100% - 30px);
+  background-color: $navy;
+  float: left;
+
+  &__header {
+    padding: 0 20px;
+    height: 100px;
+    background-color: $dark-navy;
+
+    h5 {
+      color: $letter-white;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 100px;
+      float: left;
+    }
+
+    &__icon {
+      color: $letter-white;
+      line-height: 100px;
+      font-size: 20px;
+      letter-spacing: 6px;
+
+      a {
+        float: right;
+      }
+    }
+  }
+
+  &__group-contents {
+    padding: 0 20px;
+
+    &--list {
+      padding: 20px 0 40px 0;
+      font-weight: bold;
+      color: $letter-white;
+      
+      h5 {
+        font-size: 15px;
+        margin-bottom: 5px;
+      }
+
+      p {
+        font-size: 11px;
+      }
+    }
+  }
+}
+
+.main-content {
+  width: calc(100% - 300px);
+  height: calc(100% - 30px);
+  background-color: $white-smoke;
+  float: right;
+
+  &__header {
+    padding: 0 40px;
+    height: 100px;
+    background-color: white;
+    border-bottom: 2px solid $border-gray;
+
+    &--name {
+      float: left;
+
+      h2 {
+        padding: 35px 0 15px 0;
+        font-size: 20px;
+        color: $main-group-black;
+      }
+
+      p {
+        font-size: 12px;
+        color: $letter-lightgray;
+      }
+    }
+
+    &--edit-btn {
+      float: right;
+      display: inline-block;
+      margin-top: 28px;
+      padding: 0 20px;
+      line-height: 40px;
+      color: $light-blue;
+      border: 2px solid;
+    }
+  }
+
+  .chat-contents {
+    padding: 46px 40px 40px 40px;
+    height: calc(100% - 300px);
+
+    &__name {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: $letter-black;
+      float: left;
+    }
+
+    &__time {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 12px;
+      color: $letter-lightgray;
+      float: left;
+    }
+
+    &__message {
+      font-size: 14px;
+      color: $letter-black;
+      float: left;
+      clear: both;
+    }
+  }
+
+  .footer {
+    padding: 20px 40px;
+    position: fixed;
+    bottom: 0;
+    width: calc(100% - 380px);
+    height: 50px;
+    background-color: $border-gray;
+
+    .input-box {
+      #message_content {
+        position: relative;
+        height: 50px;
+        width: 940px;
+        float: left;
+      }
+      .input-box__image {
+        position: absolute;
+        right: 170px;
+        line-height: 50px;
+        font-size: 20px;
+        cursor: pointer;
+
+        #message_image {
+          display: none;
+        }
+      }
+    }
+
+    &__send-btn {
+      display: inline-block;
+      padding: 0 30px;
+      line-height: 50px;
+      background-color: $light-blue;
+      font-size: 16px;
+      color: $letter-white;
+      float: right;
+    }
+  }
+}
