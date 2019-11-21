@@ -1,47 +1,48 @@
-.flash-message
-  %p
-    グループを作成しました
+.flash-box
+  %p.notice グループを作成しました。
 
-.side-bar
-  .side-bar__header
-    %h5
-      うさぎ
-    .side-bar__header__icon
-      %a
-        = link_to "#" do
-          = fa_icon 'cog'
-      %a
-        = link_to "#" do
-          = fa_icon 'edit'
-
-  .side-bar__group-contents
-    .side-bar__group-contents--list
-      .side-bar__group-content--name
-        %h5 
-          うさぎとかめ
-      .side-bar__group-content--message
-        %p
-          負けた。。。
-
-.main-content
-  .main-content__header
-    .main-content__header--name
-      %h2
-        うさぎとかめ
-      %p 
-        Menber: うさぎ  かめ
-    .main-content__header--edit-btn
-      %a
-        Edit
-
-  .messages
-      = render @messages
-
-.form
-  = form_for [@group, @message] do |f|
-    = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-    .form__mask
-      = f.label :image, class: 'form__mask__image' do
-        = fa_icon 'picture-o', class: 'icon'
-        = f.file_field :image, class: 'hidden'
-    = f.submit 'Send', class: 'form__submit'
+.wrapper
+  .chat-side
+    .side-header
+      .side-header__box
+        %p.side-header__box__user-name yahoo
+        %ul.side-header__box__menu
+          %li.side-header__box__menu__new-group
+            %a{href: "/groups/new"}
+              %i.fa.fa-edit
+          %li.side-header__box__menu__edit-user
+            %a{href: "/users/1611/edit"}
+              %i.fa.fa-cog
+    .groups
+      %a{href: "/groups/3547/messages"}
+        .group
+          %p.group__group-name 群鳳
+          %p.group__latest-message お腹すいた
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group{"data-group_id": "3547"}
+          群鳳
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member kaito
+          %li.main-header__left-box__member-list__member kaito
+          %li.main-header__left-box__member-list__member yahoo
+      %a{href: "/groups/3547/edit"}
+        .main-header__edit-btn Edit
+    .messages
+      .message{"data-message_id": "8790"}
+        .message__upper-info
+          %p.message__upper-info__talker yahoo
+          %p.message__upper-info__date 2019/10/26(Sat) 13:59:47
+        %p.message__text お腹すいた
+    .form
+      %form#new_message.new_message{"accept-charset": "UTF-8", action: "/groups/3547/messages", enctype: "multipart/form-data", method: "post"}
+        %input{name: "utf8", type: "hidden", value: "✓"}/
+        %input{name: "authenticity_token", type: "hidden", value: "hjavNWe14xcKwSQEMdOFZCkB6JakQk6BvXz0w20WBiM9D0zvOfLs2kSZg3K8000JCkAd8hNdBEJTnhtB3ecE7w=="}/
+        .input-box
+          %input#message_content.input-box__text{name: "message[content]", placeholder: "type a message", type: "text"}/
+          %label.input-box__image{for: "message_image"}
+            %i.fa.fa-image
+            %input#message_image.input-box__image__file{name: "message[image]", type: "file"}/
+        %input.submit-btn{"data-disable-with": "Send", name: "commit", type: "submit", value: "Send"}/
